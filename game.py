@@ -23,22 +23,45 @@ if __name__ == "__main__":
 			print("thank you playing! bye :) ")
 			exit()
 
-		if inStr == 's' or inStr == 'S':
+		elif inStr == 's' or inStr == 'S':
 			print("-----your score-----")
 			# TODO: show score list
 
-		if inStr == 'm' or inStr == 'M':
+		elif inStr == 'm' or inStr == 'M':
 			print("please change game mode")
 			print("easy mode: type 'e' | middle mode: type 'm' | hard mode: type 'h'")
 			inMode = raw_input("please type game mode:")
 			if inMode == 'e' or inMode == 'E':
 				mode = "easy"
-			if inMode == 'm' or inMode == 'M':
+			elif inMode == 'm' or inMode == 'M':
 				mode = "middle"
-			if inMode == 'h' or inMode == 'H':
+			elif inMode == 'h' or inMode == 'H':
 				mode = "hard"
 			else:
 				print("sorry, your type is " + inMode + ". this is no matching..." )
-		if inStr == 'g' or inStr == 'G':
+		elif inStr == 'g' or inStr == 'G':
 			# start game
-			print(inStr) # for debug
+			correct = 0;
+			failed = 0
+
+			if mode == "easy":
+				start = 65
+				end = 122
+			elif mode == "middle":
+				start = 48
+				end = 126
+			elif mode == "hard":
+				start = 33
+				end = 126
+
+			for i in range(10):
+				ch = chr(random.randint(start, end))
+				ans = raw_input("is " + str(ord(ch)) + ":" + str(hex(ord(ch))) + " be ascii charset? :")
+				if ans == ch:
+					print "GREAT!"
+					correct+=1
+				else:
+					print "Failed...answer is " + str(ch)
+					failed+=1
+
+			print("your score is correct:" + str(correct) + " | failed:" + str(failed))
