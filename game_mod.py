@@ -77,19 +77,19 @@ def game_start(mode):
 	correct = 0;
 	failed = 0
 
-	if mode == "easy":
+	if mode == MODE_EASY:
 		start = 65
 		end = 122
-	elif mode == "middle":
+	elif mode == MODE_MIDDLE:
 		start = 48
 		end = 126
-	elif mode == "hard":
+	elif mode == MODE_HARD:
 		start = 33
 		end = 126
-	elif mode == "very easy(only upper)":
+	elif mode == MODE_VERY_EASY_1:
 		start = 65
 		end = 90
-	elif mode == "very easy(only lower)":
+	elif mode == MODE_VERY_EASY_2:
 		start = 97
 		end = 122
 
